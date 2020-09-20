@@ -15,16 +15,16 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
-    <link rel = "stylesheet"
-   type = "text/css"
-   href = "./assets/css/style.css" />
-   <link rel = "stylesheet"
-   type = "text/css"
-   href = "./assets/img/Visningbild.jpg" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/handsontable/dist/handsontable.full.min.css"
+    />
 
     <title>Gränsvärde</title>
+    <!--Script för sökfunktion-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
       $(document).ready(function () {
@@ -36,11 +36,30 @@
         });
       });
     </script>
+    <!--style till section-->
+    <style>
+      .box {
+        color: #fff;
+        padding: 20px;
+        display: none;
+        margin-top: 20px;
+      }
+      .material {
+        background: white;
+      }
+      .air {
+        background: white;
+      }
+      .ground {
+        background: white;
+      }
+    </style>
+    <!--style till navbar och tabell-->
     <style>
       table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
-        width: 70%;
+        width: 80%;
       }
 
       td,
@@ -59,80 +78,1694 @@
         width: 10%;
         padding: 10px;
       }
-
-
-
-
     </style>
+    <!--Script till section-->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("select")
+          .change(function () {
+            $(this)
+              .find("option:selected")
+              .each(function () {
+                var optionValue = $(this).attr("value");
+                if (optionValue) {
+                  $(".element")
+                    .not("." + optionValue)
+                    .hide();
+                  $("." + optionValue).show();
+                } else {
+                  $(".element").hide();
+                }
+              });
+          })
+          .change();
+      });
+    </script>
   </head>
   <body>
-    <div class="collapse bg-dark" id="navbarHeader">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-8 col-md-7 py-4">
-            <h4 class="text-white">Meddelande</h4>
-            <p class="text-muted">
-              Detta är mitt förslag till en sammlingsplats för sådant som berör
-              olika gränsvärden. Sammlingsplatsen är konstruerad så att du kan
-              söka på det önskade ämnet och finns det en matchning dyker det
-              upp. Detta är med syfte att underlätta vårt arbete. Ser du något
-              som inte stämmer får du mer än gärna informera mig! //Sofie
-            </p>
+      <!--Navbar börjar här-->
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">Meddelande</h4>
+              <p class="text-muted">
+                Detta är mitt förslag till en sammlingsplats för sådant som berör
+                olika gränsvärden. Sammlingsplatsen är konstruerad så att du kan
+                söka på det önskade ämnet och finns det en matchning dyker det
+                upp. Detta är med syfte att underlätta vårt arbete. Ser du något
+                som inte stämmer får du mer än gärna informera mig! //Sofie
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-      <div class="container d-flex justify-content-between">
-        <a href="#" class="navbar-brand d-flex align-items-center">
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-building" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"/>
-            <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"/>
-          </svg>
-            <circle cx="12" cy="13" r="4" />
-          </svg>
-          <strong>&nbsp Hustopi</strong>
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarHeader"
-          aria-controls="navbarHeader"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-building" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"/>
+              <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"/>
+            </svg>
+              <circle cx="12" cy="13" r="4" />
+            </svg>
+            <strong>&nbsp Gränsvärden</strong>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarHeader"
+            aria-controls="navbarHeader"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
       </div>
+      <br />
+      <br />
+      <br />
+      <!--Centrala överskriften börjar här-->
+      <center><h2>Gränsvärden över hälso- och miljöfarliga ämnen</h2>
+        <p>
+          Beroende på vad du söker efter kan du i sökfältet skriva in ämnet du
+          söker gränsvärde på eller på en vald enhet. Det som matchar din sökning
+          kommer dyka upp. Detta möjliggör att du lätt och snabbt hittar det du
+          söker efter. Även länkar till källan och övrig information på internet
+          kommer finnas tillgänglig.
+        </p>
+     <!--Selection menyn-->
+     <div>
+      <select>
+        <option>Välj kategori</option>
+        <option value="material" selected="Selected">Byggmaterial</option>
+        <option value="air">Inomhusmiljö</option>
+        <option value="ground">Mark</option>
+      </select>
+    </div>
+  </center>
+  <br/>
+  <center><input id="myInput" type="text" placeholder="Sök" /></center>
+  <br />
+    <!--Tabell för byggmaterial-->
+    <div class="material element">
+      <center>
+        <table id="myTable" style="width: 70%">
+          <tr>
+            <th>Ämne</th>
+            <th>Beteckning</th>
+            <th>Enhet</th>
+            <th>Gränsvärde</th>
+            <th>Kommentar</th>
+            <th>Länk</th>
+          </tr>
+          <tr>
+            <td><details><summary>Antimon       <input type="checkbox" id="Antimon" name="Antimon" value="Antimon"></summary><p><small>Antimon är en halvmetall som bla kan hittas i plast, flamskyddsmedel och glas.</small></p></details></td>
+            <td>Sb</td>
+            <td>mg/kg</td>
+            <td>5</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="http://www.naturvardsverket.se/Documents/publikationer/620-0144-2.pdf"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+                <td><details><summary>Arsenik         <input type="checkbox" id="Arsenik" name="Arsenik" value="Arsenik"></summary><p><small>En del äldre byggmaterial kan innehålla farliga ämnen, såsom arsenik i impregnerat trä och PCB i fönster.</small></p></details></td>
+                <td>As</td>
+                <td>µg/l</td>
+                <td>10</td>
+                <td>Allmänt</td>
+                <td>
+                  <a
+                    href="https://www.naturvardsverket.se/Om-Naturvardsverket/Publikationer/ISBN/5900/978-91-620-5976-7/"
+                    >Länk</a
+                  >
+                </td>
+          </tr>
+          <tr>
+            <td><details><summary>Asbest       <input type="checkbox" id="Asbest" name="Asbest" value="Asbest"></summary><p><small>Asbest är ett samlingsnamn på flera mineraler som finns i naturen. Asbest har tidigare använts som brandskydd i stålkonstruktioner, ventilationsanläggningar, värmeisolering i rör, underskikt till plastmattor, fix och fog till kakel,färger och plaster.</small></p></details></td>
+            <td>1332-21-4</td>
+            <td>%</td>
+            <td>0,1</td>
+            <td>Svar JA innebär att det innehåller asbest</td>
+            <td>
+              <a 
+                href="https://www.av.se/arbetsmiljoarbete-och-inspektioner/publikationer/foreskrifter/hygieniska-gransvarden-afs-20181-foreskrifter/"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>BBP          <input type="checkbox" id="BBP" name="BBP" value="BBP"></summary><p><small>BBP heter även butylbensylftalat och är en ftalat som går att hitta i mjukgörare. Ftalater kan bla hittas i PCV-golv, elkablar och slangar.</small></p></details></td>
+            <td>85-68-7</td>
+            <td>%</td>
+            <td>0,1</td>
+            <td>Föbjudet och utgör farligt avfall</td>
+            <td>
+              <a
+                href="https://www.kemi.se/lagar-och-regler/reach-forordningen/begransning/aktuellt-om-begransningar"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Bly       <input type="checkbox" id="Bly" name="Bly" value="Bly"></summary><p><small>Bly är en metall som går att hitta i färger, elektriska tillämpningar, blyspröjsar och batteri.</small></p></details></td>
+            <td>Pb</td>
+            <td>mg/kg</td>
+            <td>0,5</td>
+            <td>Allmänt</td>
+            <td>
+              <a
+                href="https://www.naturvardsverket.se/Om-Naturvardsverket/Publikationer/ISBN/5900/978-91-620-5976-7/"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>CFC-11        <input type="checkbox" id="CFC-11" name="CFC-11" value="CFC-11"></summary><p><small>CFC-11 heter även fluortriklormetan och används som köldmedium i bla kylskåp och installationstekniska system.</small></p></details></td>
+            <td>75-69-4</td>
+            <td>mg/kg</td>
+            <td>1000</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32008R1272&from=SV"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>CFC-12       <input type="checkbox" id="CFC-12" name="CFC-12" value="CFC-12"></summary><p><small>CFC-12 heter även difluordiklormetan och används som köldmedium i kylskåp och installationstekniska system</small></p></details></td>
+            <td>75-71-8</td>
+            <td>mg/kg</td>
+            <td>1000</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32008R1272&from=SV"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>CFC-113        <input type="checkbox" id="CFC-113" name="CFC-113" value="CFC-113"></summary><p><small>CFC-113 heter även trifluortrikloretan och används som köldmedium i kylskåp och installationstekniska system.</small></p></details></td>
+            <td>76-13-1</td>
+            <td>mg/kg</td>
+            <td>1000</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32008R1272&from=SV"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Cr6+         <input type="checkbox" id="Cr6+" name="Cr6+" value="Cr6+"></summary><p><small>Cr6+ är en "uppdelning" av krom och används bla i träskyddsmedel på telefonstolpar.</small></p></details></td>
+            <td>18540-29-9</td>
+            <td>mg/kg</td>
+            <td>2,5</td>
+            <td>Innebär att det är krom som uppdelat</td>
+            <td>
+              <a
+                href="https://www.naturvardsverket.se/Stod-i-miljoarbetet/Vagledningar/Fororenade-omraden/Riktvarden-for-fororenad-mark/"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>DBP         <input type="checkbox" id="DBP" name="DBP" value="DBP" ></summary><p><small>DBP heter även di-n-butylftalat och är en ftalat som går att hitta i mjukgörare. Ftalater kan bla hittas i PCV-golv, elkablar och slangar.</small></p></details></td>
+            <td>80-43-3</td>
+            <td>%</td>
+            <td>0,1</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="https://www.kemi.se/lagar-och-regler/reach-forordningen/begransning/aktuellt-om-begransningar"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>DCP         <input type="checkbox" id="DCP" name="DCP" value="DCP"></summary><p><small>DCP heter även di-cyklohexylftalat och är en ftalat som går att hitta i mjukgörare. Ftalater kan bla hittas i PCV-golv, elkablar och slangar.</small></p></details></td>
+            <td>80-43-3</td>
+            <td>%</td>
+            <td>0,1</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="https://www.kemi.se/lagar-och-regler/reach-forordningen/begransning/aktuellt-om-begransningar"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>DEHP        <input type="checkbox" id="DEHP" name="DEHP" value="DEHP"></summary><p><small>DEHP heter även di-(2-etylhexyl)ftalat och är en ftalat som går att hitta i mjukgörare. Ftalater kan bla hittas i PCV-golv, elkablar och slangar.</small></p></details></td>
+            <td>117-81-7</td>
+            <td>%</td>
+            <td>0,1</td>
+            <td>Begränsat i elektronik och utgör farligt avfall</td>
+            <td>
+              <a
+                href="https://www.kemi.se/lagar-och-regler/reach-forordningen/begransning/aktuellt-om-begransningar"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>DEP        <input type="checkbox" id="DEP" name="DEP" value="DEP"></summary><p><small>DEP heter även dietylftalat och är en ftalat som går att hitta i mjukgörare. Ftalater kan bla hittas i PCV-golv, elkablar och slangar.</small></p></details></td>
+            <td>84-66-2</td>
+            <td>%</td>
+            <td>0,1</td>
+            <td>Reglerat användningsområde och utgör farligt avfall</td>
+            <td>
+              <a
+                href="https://www.kemi.se/lagar-och-regler/reach-forordningen/begransning/aktuellt-om-begransningar"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>DIBP       <input type="checkbox" id="DIBP" name="DIBP" value="DIBP"></summary><p><small>DIBP heter även di-iso-butylftalat och är en ftalat som går att hitta i mjukgörare. Ftalater kan bla hittas i PCV-golv, elkablar och slangar.</small></p></details></td>
+            <td>84-69-5</td>
+            <td>%</td>
+            <td>0,1</td>
+            <td>Reglerad användningsområde och utgör farligt avfall</td>
+            <td>
+              <a
+                href="https://www.kemi.se/lagar-och-regler/reach-forordningen/begransning/aktuellt-om-begransningar"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>DOC       <input type="checkbox" id="DOC" name="DOC" value="DOC"></summary><p><small>DOC innebär organiskt upplöst material/kol och går bla hitta i mark och vatten.</small></p></details></td>
+            <td>Finns inget</td>
+            <td>mg/kg</td>
+            <td>1000</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="http://www.naturvardsverket.se/Documents/publikationer/620-0144-2.pdf"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>DMP         <input type="checkbox" id=DMP" name="DMP" value="DMP"></summary><p><small>DMP heter även dimetylftalat och är en ftalat som går att hitta i mjukgörare. Ftalater kan bla hittas i PCV-golv, elkablar och slangar.</small></p></details></td>
+            <td>131-11-3</td>
+            <td>%</td>
+            <td>0,1</td>
+            <td>Reglerad användningsområde och utgör farligt avfall</td>
+            <td>
+              <a
+                href="https://www.kemi.se/lagar-och-regler/reach-forordningen/begransning/aktuellt-om-begransningar"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <td><details><summary>DNOP          <input type="checkbox" id="DNOP" name="DNOP" value="DNOP"></summary><p><small>DNOP heter även di-n-oktylftalat och är en ftalat som går att hitta i mjukgörare. Ftalater kan bla hittas i PCV-golv, elkablar och slangar.</small></p></details></td>
+          <td>117-84-0</td>
+          <td>%</td>
+          <td>0,1</td>
+          <td>Reglerad användningsområde och utgör farligt avfall</td>
+          <td>
+            <a
+              href="https://www.kemi.se/lagar-och-regler/reach-forordningen/begransning/aktuellt-om-begransningar"
+              >Länk</a
+            >
+          </td>
+        </tr>
+        <td><details><summary>DNPP              <input type="checkbox" id="DNPP" name="DNPP" value="DNPP"></summary><p><small>DNPP heter även di-n-pentylftalat och är en ftalat som går att hitta i mjukgörare. Ftalater kan bla hittas i PCV-golv, elkablar och slangar.</small></p></details></td>
+        <td>131-18-0</td>
+        <td>%</td>
+        <td>0,1</td>
+        <td>Reglerad användningsområde och utgör farligt avfall</td>
+        <td>
+          <a
+            href="https://www.kemi.se/lagar-och-regler/reach-forordningen/begransning/aktuellt-om-begransningar"
+            >Länk</a
+          >
+        </td>
+        </tr>
+      </tr>
+      <td><details><summary>DPP         <input type="checkbox" id="DPP" name="DPP" value="DPP"></summary><p><small>DPP heter även di-n-propylftalat och är en ftalat som går att hitta i mjukgörare. Ftalater kan bla hittas i PCV-golv, elkablar och slangar.</small></p></details></td>
+      <td>131-16-8</td>
+      <td>%</td>
+      <td>0,1</td>
+      <td>Reglerad användningsområde och utgör farligt avfall</td>
+      <td>
+        <a
+          href="https://www.kemi.se/lagar-och-regler/reach-forordningen/begransning/aktuellt-om-begransningar"
+          >Länk</a
+        >
+      </td>
+      </tr>
+          <tr>
+            <td><details><summary>Fluorid         <input type="checkbox" id="Fluorid" name="Fluorid" value="Fluorid"></summary><p><small>Flurid är negativt laddade jouner och flour och används bla i träskyddsmedel på telefonstolpar.</small></p></details></td>
+            <td>F-</td>
+            <td>mg/kg</td>
+            <td>500</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="http://www.naturvardsverket.se/Documents/publikationer/620-0144-2.pdf"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>HCFC-22          <input type="checkbox" id="HCFC" name="HCFC" value="HCFC"></summary><p><small>HCFC-22 heter även difluorklormetan och är ett köldmedium och används bla i kylskåp, installationstekniska system och rörisoleringar.</small></p></details></td>
+            <td>75-45-6</td>
+            <td>mg/kg</td>
+            <td>1000</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32008R1272&from=SV"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>HCFC-141b          <input type="checkbox" id="HCFC-141b" name="HCFC-141b" value="HCFC-141b"></summary><p><small>HCFC-141b heter även 1,1-Dichloro-1-fluoroethane och är ett köldmedium och används bla i kylskåp, installationstekniska system och rörisoleringar.</small></p></details></td>
+            <td>1717-00-6</td>
+            <td>mg/kg</td>
+            <td>1000</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32008R1272&from=SV"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>HCFC-142b          <input type="checkbox" id="HCFC-142b" name="HCFC-142b" value="HCFC-142b"></summary><p><small>HCFC-142b heter även 1-Chloro-1,1-difluoroethane och är ett köldmedium och används bla i kylskåp, installationstekniska system och rörisoleringar.</small></p></details></td>
+            <td>75-68-3</td>
+            <td>mg/kg</td>
+            <td>1000</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32008R1272&from=SV"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>HFC-134A             <input type="checkbox" id="HFC-134A" name="HFC-134A" value="HFC-134A"></summary><p><small>HFC-134A heter även 1,1,1,2-Tetrafluoretan och är ett köldmedium och används bla i kylskåp, installationstekniska system och rörisoleringar.</small></p></details></td>
+            <td>811-97-2</td>
+            <td>mg/kg</td>
+            <td>1000</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="https://eur-lex.europa.eu/legal-content/SV/TXT/PDF/?uri=CELEX:32008R1272&from=SV"
+                >Länk</a
+              >
+            </td>
+          </tr>
+        </tr>
+        <td><details><summary>Klorid       <input type="checkbox" id="Klorid" name="Klorid" value="Klorid"> </summary><p><small>Klorid är en negativt laddad jon av grundämnet klor och är bla en beståndsdel i träskyddsmedel som används på telefonstolpar.</small></p></details></td>
+        <td>Ci-</td>
+        <td>mg/kg</td>
+        <td>25000</td>
+        <td>Farligt avfall</td>
+        <td>
+          <a
+            href="http://www.naturvardsverket.se/Documents/publikationer/620-0144-2.pdf"
+            >Länk</a
+          >
+        </td>
+      </tr>
+        <tr>
+          <td><details><summary>Klorparaffiner MCCP        <input type="checkbox" id="MCCP" name="MCCP" value="MCCP"></summary><p><small>MCCP är mellankedjiga klorparaffiner och går bla att hitta i fogar och plastgolv.</small></p></details></td>
+          <td>85535-85-9</td>
+          <td>mg/kg</td>
+          <td>1000</td>
+          <td>Tänk på att dubbelkolla om beräkning behövs göras</td>
+          <td>
+            <a href="http://www.sanerapcb.nu/web/page.aspx?refid=706">Länk</a>
+          </td>
+        </tr>
+          <tr>
+            <td><details><summary>Klorparaffiner SCCP         <input type="checkbox" id="SCCP" name="SCCP" value="SCCP"> </summary><p><small>MCCP är kortkedjiga klorparaffiner och går bla att hitta i fogar och plastgolv.</small></p></details></td>
+            <td>85535-84-8</td>
+            <td>mg/kg</td>
+            <td>1000</td>
+            <td>Tänk på att dubbelkolla om beräkning behövs göras</td>
+            <td>
+              <a href="http://www.sanerapcb.nu/web/page.aspx?refid=706">Länk</a>
+            </td>
+
+          <tr>
+            <td><details><summary>Klorparaffiner SCCP+MCCP        <input type="checkbox" id="MSCCP" name="MSCCP" value="MSCCP"></summary><p><small>Är både kort- och långkedjiga klorparraffiner och går bla att hitta i fogar och plastgolv.</small></p></details></td>
+            <td>85535-84-8</td>
+            <td>mg/kg</td>
+            <td>2500</td>
+            <td>Tänk på att dubbelkolla om beräkning behövs göras</td>
+            <td>
+              <a href="http://www.sanerapcb.nu/web/page.aspx?refid=706">Länk</a>
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Kobolt         <input type="checkbox" id="Kobolt" name="Kobolt" value="Kobolt"> </summary><p><small>Kobolt är ett metaliskt grundämne som bla är en beståndsdel i träskyddsmedel som används på telefonstolpar.</small></p></details></td>
+            <td>Co</td>
+            <td>mg/kg</td>
+            <td>15</td>
+            <td>Torrsubstans</td>
+            <td>
+              <a
+                href="https://www.naturvardsverket.se/Om-Naturvardsverket/Publikationer/ISBN/5900/978-91-620-5976-7/"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Koppar       <input type="checkbox" id="Koppar" name="Koppar" value="Koppar"></summary><p><small>Koppar är ett metalliskt grundämne som bla använd inom elektriska system, färger och beståndsdel i träskyddsmedel som används på trästolpar.</small></p></details></td>
+            <td>Cu</td>
+            <td>mg/kg</td>
+            <td>2</td>
+            <td>Allmänt</td>
+            <td>
+              <a
+                href="https://www.naturvardsverket.se/Om-Naturvardsverket/Publikationer/ISBN/5900/978-91-620-5976-7/"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Krom total            <input type="checkbox" id="Kromtotal" name="Kromtotal" value="Kromtotal"></summary><p><small>Krom är ett metaliskt grundämne som bla är en beståndsdel i träskyddsmedel som på telefonsstolpar.</small></p></details></td>
+            <td>Cr</td>
+            <td>mg/kg</td>
+            <td>0,5</td>
+            <td>Allmänt</td>
+            <td>
+              <a
+                href="https://www.naturvardsverket.se/Om-Naturvardsverket/Publikationer/ISBN/5900/978-91-620-5976-7/"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Kvicksilver          <input type="checkbox" id="Kvicksilver" name="Kvicksilver" value="Kvicksilver"></summary><p><small>Kvicksilver är ett metalliskt grundämne som bla är en används som stabilisator i PVC plast, pigment och beståndsdel i nivåvippor.</small></p></details></td>
+            <td>Hg</td>
+            <td>mg/kg</td>
+            <td>2</td>
+            <td>Byggmaterial</td>
+            <td>
+              <a
+                href="https://www.naturvardsverket.se/Om-Naturvardsverket/Publikationer/ISBN/5900/978-91-620-5976-7/"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Mangan        <input type="checkbox" id="Mangan" name="Mangan" value="Mangan"></summary><p><small>Mangan är ett metaliskt grundämne som bla är en beståndsdel i träskyddsmedel som används på trästolpar.</small></p></details></td>
+            <td>Mn</td>
+            <td>mg/kg</td>
+            <td>Finns inget</td>
+            <td>Byggmaterial</td>
+            <td>
+              <a
+                href="https://www.naturvardsverket.se/Om-Naturvardsverket/Publikationer/ISBN/5900/978-91-620-5976-7/"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Molybden         <input type="checkbox" id="Molybden" name="Molybden" value="Molybden"></summary><p><small>Molybden är ett metaliskt grundämne.</small></p></details></td>
+            <td>Mo</td>
+            <td>mg/kg</td>
+            <td>30</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="http://www.naturvardsverket.se/Documents/publikationer/620-0144-2.pdf"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Nickel     <input type="checkbox" id="Nickel" name="Nickel" value="Nickel"></summary><p><small>Nickel är ett metaliskt grundämne som bla är en beståndsdel i träskyddsmedel som används på telefonstolpar.</small></p></details></td>
+            <td>Ni</td>
+            <td>mg/kg</td>
+            <td>50</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="http://www.naturvardsverket.se/Documents/publikationer/620-0144-2.pdf"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Selen     <input type="checkbox" id="Selen" name="Selen" value="Selen"></summary><p><small>Selen är ett icke metaliskt grundämne.</small></p></details></td>
+            <td>Se</td>
+            <td>mg/kg</td>
+            <td>7</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="http://www.naturvardsverket.se/Documents/publikationer/620-0144-2.pdf"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Toluene     <input type="checkbox" id="Toluene" name="Toluene" value="Toluene"> </summary><p><small>Toluene är ett aromatiska kolväten och kan finnas i en rad byggmaterial.</small></p></details></td>
+            <td>108-88-3 </td>
+            <td>µg/m3</td>
+            <td>2 900</td>
+            <td>Finns inget gränsvärde, förslag från kemikalieinspektonen.</td>
+            <td>
+              <a
+                href="https://www.kemi.se/global/rapporter/2015/rapport-8-15-halsoskadliga-kemiska-amnen-i-byggprodukter.pdf"
+                >Länk</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>PCB          <input type="checkbox" id="PCB" name="PCB" value="PCB"></summary><p><small>PCB heter även polyklorerade bifenyler och är en rad hälso- och miljöfarliga ämnen. PCB går bla att hitta i fogar, ventilationstätningar och halkfria golv.</small></p></details></td>
+            <td>1336-36-3</td>
+            <td>mg/kg</td>
+            <td>50</td>
+            <td>Fogmassor</td>
+            <td>
+              <a href="http://www.sanerapcb.nu/web/page.aspx?refid=12">Länk</a>
+            </td>
+          </tr>
+          <tr>
+            <td><details><summary>Zink             <input type="checkbox" id="Zink" name="Zink" value="Zink"></summary><p><small>Zink är ett metaliskt grundämne som bla är en beståndsdel i träskyddsmedel som används på telefonstolpar.</small></p></details></td>
+            <td>Zn</td>
+            <td>mg/kg</td>
+            <td>200</td>
+            <td>Farligt avfall</td>
+            <td>
+              <a
+                href="http://www.naturvardsverket.se/Documents/publikationer/620-0144-2.pdf"
+                >Länk</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+        </table>
+      </center>
+    </div>
+    <!--Tabell för luft-->
+    <div class="air element">
+        <center>
+            <table id="myTable" style="width: 70%">
+              <tr>
+                <th>Ämne</th>
+                <th>Beteckning</th>
+                <th>Enhet</th>
+                <th>Nivågränsvärde (NGV)</th>
+                <th>Korttidsgränsvärde (KGV)</th>
+                <th>Kommentar</th>
+                <th>Länk</th>
+              </tr>
+              <tr>
+                <td><details><summary>Acetaldehyd        <input type="checkbox" id="Acetaldehyd" name="Acetaldehyd" value="Acetaldehyd"></summary><p><small>Acetaldehyd kan avges av byggnadsmaterial som trä, kork och linoleum. Vanliga halter av acetaldehyd inomhus i Sverige är cirka 10 µg/m³</small></p></details></td>
+                <td>75-07-0</td>
+                <td>mg/m3</td>
+                <td>45</td>
+                <td>90</td>
+                <td>Cancerframkallande och KVG bör inte överskridas</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Acetamid        <input type="checkbox" id="Acetamid" name="Acetamid" value="Acetamid"></summary><p><small>Acetamid används som lösningsmedel och mjukgörare</small></p></details></td>
+                <td>60-35-5</td>
+                <td>mg/m3</td>
+                <td>25</td>
+                <td>60</td>
+                <td>Cancerframkallande och KVG bör inte överskridas</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>2-Acetamidofuoren        <input type="checkbox" id="2-Acetamidofuoren" name="2-Acetamidofuoren" value="2-Acetamidofuoren"></summary><p><small></small></p></details></td>
+                <td>53-96-3</td>
+                <td>mg/m3</td>
+                <td>Finns inget</td>
+                <td>Finns inget</td>
+                <td>Cancerframkallande</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Aceton        <input type="checkbox" id="Aceton" name="Aceton" value="Aceton"></summary><p><small>Aceton används som lösningsmedel</small></p></details></td>
+                <td>67-64-1</td>
+                <td>mg/m3</td>
+                <td>600</td>
+                <td>1200</td>
+                <td>KVG bör inte överskridas</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Acetonitril        <input type="checkbox" id="Acetonitril" name="Acetonitril" value="Acetonitril"></summary><p><small></small></p></details></td>
+                <td>75-05-8</td>
+                <td>mg/m3</td>
+                <td>50</td>
+                <td>100</td>
+                <td>Ämnet kan lätt upptas under huden och KVG bör inte överskridas</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Akrolein        <input type="checkbox" id="Akrolein" name="Akrolein" value="Akrolein"></summary><p><small></small></p></details></td>
+                <td>107-02-8</td>
+                <td>mg/m3</td>
+                <td>0.05</td>
+                <td>0.12</td>
+                <td></td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Akrylamid        <input type="checkbox" id="Akrylamid" name="Akrylamid" value="Akrylamid"></summary><p><small></small></p></details></td>
+                <td>79-06-1</td>
+                <td>mg/m3</td>
+                <td>0.03</td>
+                <td>0.1</td>
+                <td>Ämnet är cancerframkallande och kan lätt upptas genom huden.</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Akrylnitril        <input type="checkbox" id="Akrylnitril" name="Akrylnitril" value="Akrylnitril"></summary><p><small></small></p></details></td>
+                <td>107-13-1</td>
+                <td>mg/m3</td>
+                <td>4.5</td>
+                <td>13</td>
+                <td>Ämnet är cancerframkallande och kan lätt upptas genom huden.</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Akrylsyra        <input type="checkbox" id="Akrylsyra" name="Akrylsyra" value="Akrylsyra"></summary><p><small></small></p></details></td>
+                <td>79-10-7</td>
+                <td>mg/m3</td>
+                <td>29</td>
+                <td>59</td>
+                <td></td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+            </tr>
+            <tr>
+                <td><details><summary>Allylalkohol        <input type="checkbox" id="Allylalkohol" name="Allylalkohol" value="Allylalkohol"></summary><p><small></small></p></details></td>
+                <td>107-18-6</td>
+                <td>mg/m3</td>
+                <td>5</td>
+                <td>12</td>
+                <td>Ämnet kan lätt upptas genom huden</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Allylamin        <input type="checkbox" id="Allylamin" name="Allylamin" value="Allylamin"></summary><p><small></small></p></details></td>
+                <td>107-11-9</td>
+                <td>mg/m3</td>
+                <td>5</td>
+                <td>14</td>
+                <td>Ämnet kan lätt pptas genom huden och KVG bör inte överskridas.</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Allylklorid        <input type="checkbox" id="Allylklorid" name="Allylklorid" value="Allylklorid"></summary><p><small></small></p></details></td>
+                <td>107-05-1</td>
+                <td>mg/m3</td>
+                <td>3</td>
+                <td>9</td>
+                <td>Ämnet kan lätt upptas genom huden och KVG bör inte överskridas.</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+            </tr>
+            <tr>
+                <td><details><summary>p-Aminoazobensen        <input type="checkbox" id="p-Aminoazobensen" name="p-Aminoazobensen" value="p-Aminoazobensen"></summary><p><small></small></p></details></td>
+                <td>60-09-3</td>
+                <td>mg/m3</td>
+                <td>Finns inget</td>
+                <td>Finns inget</td>
+                <td>Ämnet är cancerframkallande</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>4-Aminodifenyl        <input type="checkbox" id="4-Aminodifenyl" name="4-Aminodifenyl" value="4-Aminodifenyl"></summary><p><small></small></p></details></td>
+                <td>92-67-1</td>
+                <td>mg/m3</td>
+                <td>Finns inget</td>
+                <td>Finns inget</td>
+                <td>Ämnet är cancerframkallande</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Amitrol        <input type="checkbox" id="Amitrol" name="Amitrol" value="Amitrol"></summary><p><small></small></p></details></td>
+                <td>61-82-5</td>
+                <td>mg/m3</td>
+                <td>0.2</td>
+                <td>Finns inget</td>
+                <td>Ämnet är cancerframkallande</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Ammoniak        <input type="checkbox" id="Ammoniak" name="Ammoniak" value="Ammoniak"></summary><p><small></small></p></details></td>
+                <td>7664-41-7</td>
+                <td>mg/m3</td>
+                <td>14</td>
+                <td>36</td>
+                <td></td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Anilin        <input type="checkbox" id="Anilin" name="Anilin" value="Anilin"></summary><p><small></small></p></details></td>
+                <td>62-53-3</td>
+                <td>mg/m3</td>
+                <td>4</td>
+                <td>8</td>
+                <td>Ämnet är cancerframkallande och kan lätt upptas av huden</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Antimontrihydrid        <input type="checkbox" id="Antimontrihydrid" name="Antimontrihydrid" value="Antimontrihydrid"></summary><p><small></small></p></details></td>
+                <td>7803-52-3</td>
+                <td>mg/m3</td>
+                <td>0.3</td>
+                <td>Finns inget</td>
+                <td></td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Arsenik        <input type="checkbox" id="Arsenik" name="Arsenik" value="Arsenik"></summary><p><small></small></p></details></td>
+                <td>7440-38-2*</td>
+                <td>mg/m3</td>
+                <td>0.01</td>
+                <td>Finns inget</td>
+                <td>Ämnet är cancerframkallande</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Arseniktrihydrid        <input type="checkbox" id="Arseniktrihydrid" name="Arseniktrihydrid" value="Arseniktrihydrid"></summary><p><small></small></p></details></td>
+                <td>7784-42-1</td>
+                <td>mg/m3</td>
+                <td>0.05</td>
+                <td>Finns inget</td>
+                <td></td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Auramin        <input type="checkbox" id="Auramin" name="Auramin" value="Auramin"></summary><p><small></small></p></details></td>
+                <td>492-80-8</td>
+                <td>mg/m3</td>
+                <td>Finns inget</td>
+                <td>Finns inget</td>
+                <td>Ämnet är cancerframkallande</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Bensalklorid        <input type="checkbox" id="Bensalklorid" name="Bensalklorid" value="Bensalklorid"></summary><p><small></small></p></details></td>
+                <td>98-87-3</td>
+                <td>mg/m3</td>
+                <td>Finns inget</td>
+                <td>Finns inget</td>
+                <td>Ämnet är cancerframkallande</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Bensen        <input type="checkbox" id="Bensen" name="Bensen" value="Bensen"></summary><p><small></small></p></details></td>
+                <td>71-43-2</td>
+                <td>mg/m3</td>
+                <td>1.5</td>
+                <td>9</td>
+                <td>Ämnet är cancerframkallande och kan lätt upptas av huden</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>p-Bensokinon        <input type="checkbox" id="p-Bensokinon" name="p-Bensokinon" value="p-Bensokinon"></summary><p><small></small></p></details></td>
+                <td>106-51-4</td>
+                <td>mg/m3</td>
+                <td>0.4</td>
+                <td>1.3</td>
+                <td>KVG bör inte överskridas</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Benso(a)pyren        <input type="checkbox" id="Benso(a)pyren" name="Benso(a)pyren" value="Benso(a)pyren"></summary><p><small></small></p></details></td>
+                <td>50-32-8</td>
+                <td>mg/m3</td>
+                <td>0,002</td>
+                <td>0,02</td>
+                <td>Ämnet är cancerframkallande och kan lätt upptas av huden</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Bensotriklorid         <input type="checkbox" id="Bensotriklorid" name="Bensotriklorid" value="Bensotriklorid"></summary><p><small></small></p></details></td>
+                <td>98-07-7</td>
+                <td>mg/m3</td>
+                <td>Finns inget</td>
+                <td>Finns inget</td>
+                <td>Ämnet är cancerframkallande.</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Bensylbutylftalat         <input type="checkbox" id="Bensylbutylftalat" name="Bensylbutylftalat" value="Bensylbutylftalat"></summary><p><small></small></p></details></td>
+                <td>85-68-7</td>
+                <td>mg/m3</td>
+                <td>3</td>
+                <td>5</td>
+                <td>Ämnet är reproduktionsskadande.</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Bensylklorid        <input type="checkbox" id="Bensylklorid" name="Bensylklorid" value="Bensylklorid"></summary><p><small></small></p></details></td>
+                <td>100-44-7</td>
+                <td>mg/m3</td>
+                <td>5</td>
+                <td>11</td>
+                <td>Ämnet är cancerframkallande och kan lätt upptas av huden</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Benzidin         <input type="checkbox" id="Benzidin" name="Benzidin" value="Benzidin"></summary><p><small></small></p></details></td>
+                <td>92-87-5</td>
+                <td>mg/m3</td>
+                <td>Finns inget</td>
+                <td>Finns inget</td>
+                <td>Ämnet är cancerframkallande.</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>1.3-Butadien         <input type="checkbox" id="1.3-Butadien" name="1.3-Butadien" value="1.3-Butadien"></summary><p><small></small></p></details></td>
+                <td>106-99-0</td>
+                <td>mg/m3</td>
+                <td>1</td>
+                <td>10</td>
+                <td>Ämnet är cancerframkallande.</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>n-Butanol         <input type="checkbox" id="n-Butanol" name="n-Butanol" value="n-Butanol"></summary><p><small></small></p></details></td>
+                <td>71-36-3</td>
+                <td>mg/m3</td>
+                <td>45</td>
+                <td>90</td>
+                <td>Ämnet kan lätt upptas av huden</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>iso-Butanol         <input type="checkbox" id="iso-Butanol" name="iso-Butanol" value="iso-Butanol"></summary><p><small></small></p></details></td>
+                <td>78-83-1</td>
+                <td>mg/m3</td>
+                <td>150</td>
+                <td>250</td>
+                <td>Ämnet kan lätt upptas av huden och KVG bör inte överskridas</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>sek-Butanol         <input type="checkbox" id="sek-Butanol" name="sek-Butanol" value="sek-Butanol"></summary><p><small></small></p></details></td>
+                <td>78-92-2</td>
+                <td>mg/m3</td>
+                <td>150</td>
+                <td>250</td>
+                <td>Ämnet kan lätt upptas av huden och KVG bör inte överskridas</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+            </tr>
+            <tr>
+                <td><details><summary>tert-Butanol         <input type="checkbox" id="tert-Butanol" name="tert-Butanol" value="tert-Butanol"></summary><p><small></small></p></details></td>
+                <td>75-65-0</td>
+                <td>mg/m3</td>
+                <td>150</td>
+                <td>250</td>
+                <td>Ämnet kan lätt upptas av huden och KVG bör inte överskridas</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Butylglycidyleter         <input type="checkbox" id="Butylglycidyleter" name="Butylglycidyleter" value="Butylglycidyleter"></summary><p><small></small></p></details></td>
+                <td>2426-08-6</td>
+                <td>mg/m3</td>
+                <td>50</td>
+                <td>80</td>
+                <td>KVG bör inte överskridas och är sensibiliserande</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Butyllaktat         <input type="checkbox" id="Butyllaktat" name="Butyllaktat" value="Butyllaktat"></summary><p><small></small></p></details></td>
+                <td>138-22-7</td>
+                <td>mg/m3</td>
+                <td>30</td>
+                <td>60</td>
+                <td>KVG bör inte överskridas.</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Butylmetakrylat         <input type="checkbox" id="Butylmetakrylat" name="Butylmetakrylat" value="Butylmetakrylat"></summary><p><small></small></p></details></td>
+                <td>97-88-1</td>
+                <td>mg/m3</td>
+                <td>300</td>
+                <td>450</td>
+                <td>KVG bör inte överskridas.</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>β-Butyrolakton         <input type="checkbox" id="β-Butyrolakton" name="β-Butyrolakton" value="β-Butyrolakton"></summary><p><small></small></p></details></td>
+                <td>3068-88-0</td>
+                <td>mg/m3</td>
+                <td>Finns inget</td>
+                <td>Finns inget</td>
+                <td>Ämnet är cancerframkallande.</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>CFC 11         <input type="checkbox" id="CFC 11" name="CFC 11" value="CFC 11"></summary><p><small></small></p></details></td>
+                <td>75-69-4</td>
+                <td>mg/m3</td>
+                <td>3000</td>
+                <td>4500</td>
+                <td>KVG bör inte överskridas.</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>CFC 12         <input type="checkbox" id="CFC 12" name="CFC 12" value="CFC 12"></summary><p><small></small></p></details></td>
+                <td>75-71-8</td>
+                <td>mg/m3</td>
+                <td>2500</td>
+                <td>4000</td>
+                <td>KVG bör inte överskridas.</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>CFC 113         <input type="checkbox" id="CFC 113" name="CFC 113" value="CFC 113"></summary><p><small></small></p></details></td>
+                <td>76-13-1</td>
+                <td>mg/m3</td>
+                <td>4000</td>
+                <td>6000</td>
+                <td>KVG bör inte överskridas.</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>CFC 113         <input type="checkbox" id="CFC 113" name="CFC 113" value="CFC 113"></summary><p><small></small></p></details></td>
+                <td>76-13-1</td>
+                <td>mg/m3</td>
+                <td>4000</td>
+                <td>6000</td>
+                <td>KVG bör inte överskridas.</td>
+                <td>
+                  <a
+                    href="https://www.av.se/globalassets/filer/publikationer/foreskrifter/hygieniska-gransvarden-afs-2018-1.pdf"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+        </table>
+        </center>
+    </div>
+    <!--Tabell för mark-->
+    <div class="ground element">
+        <center>
+            <table id="myTable" style="width: 70%">
+              <tr>
+                <th>Ämne</th>
+                <th>Beteckning</th>
+                <th>Enhet</th>
+                <th>Känslig markanvändning (KM)</th>
+                <th>Mindre känslig markanvändning (MKM)</th>
+                <th>Kommentar</th>
+                <th>Länk</th>
+              </tr>
+              <tr>
+                <td><details><summary>Antimon        <input type="checkbox" id="Antimon" name="Antimon" value="Antimon"></summary><p><small></small></p></details></td>
+                <td>SB</td>
+                <td>mg/kg TS</td>
+                <td>12</td>
+                <td>30</td>
+                <td></td>
+                <td>
+                  <a
+                    href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Arsenik        <input type="checkbox" id="Arsenik" name="Arsenik" value="Arsenik"></summary><p><small></small></p></details></td>
+                <td>AS</td>
+                <td>mg/kg TS</td>
+                <td>10</td>
+                <td>25</td>
+                <td></td>
+                <td>
+                  <a
+                    href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Barium        <input type="checkbox" id="Barium" name="Barium" value="Barium"></summary><p><small></small></p></details></td>
+                <td>Ba</td>
+                <td>mg/kg TS</td>
+                <td>200</td>
+                <td>300</td>
+                <td></td>
+                <td>
+                  <a
+                    href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Bly        <input type="checkbox" id="Bly" name="Bly" value="Bly"></summary><p><small></small></p></details></td>
+                <td>Pb</td>
+                <td>mg/kg TS</td>
+                <td>50</td>
+                <td>400</td>
+                <td></td>
+                <td>
+                  <a
+                    href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Kadmium        <input type="checkbox" id="Kadmium" name="Kadmium" value="Kadmium"></summary><p><small></small></p></details></td>
+                <td>Cd</td>
+                <td>mg/kg TS</td>
+                <td>0.8</td>
+                <td>12</td>
+                <td></td>
+                <td>
+                  <a
+                    href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Kobolt       <input type="checkbox" id="Kobolt" name="Kobolt" value="Kobolt"></summary><p><small></small></p></details></td>
+                <td>Co</td>
+                <td>mg/kg TS</td>
+                <td>15</td>
+                <td>35</td>
+                <td></td>
+                <td>
+                  <a
+                    href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td><details><summary>Koppar      <input type="checkbox" id="Koppar" name="Koppar" value="Koppar"></summary><p><small></small></p></details></td>
+                <td>Cu</td>
+                <td>mg/kg TS</td>
+                <td>80</td>
+                <td>200</td>
+                <td></td>
+                <td>
+                  <a
+                    href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574"
+                    >Länk</a
+                  >
+                </td>
+              </tr>
+              <td><details><summary>Krom total      <input type="checkbox" id="Krom total" name="Krom total" value="Krom total"></summary><p><small></small></p></details></td>
+              <td>Cr</td>
+              <td>mg/kg TS</td>
+              <td>80</td>
+              <td>150</td>
+              <td></td>
+              <td>
+                <a
+                  href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574"
+                  >Länk</a
+                >
+              </td>
+            </tr>
+             </tr>
+              <td><details><summary>Kvicksilver      <input type="checkbox" id="Kvicksilver" name="Kvicksilver" value="Kvicksilver"></summary><p><small></small></p></details></td>
+              <td>Hg</td>
+              <td>mg/kg TS</td>
+             <td>0.25</td>
+             <td>2.5</td>
+             <td></td>
+            <td>
+              <a
+            href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574"
+            >Länk</a
+          >
+        </td>
+      </tr>
+    </tr>
+          <tr>
+            <td><details><summary>Molybden       <input type="checkbox" id="Molybden" name="Molybden" value="Molybden"></input></summary><p><small></small></p></details></td>
+            <td>Mo</td>
+            <td>mg/kg TS</td>
+            <td>40</td>
+            <td>100</td>
+            <td></td>
+            <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+          </tr>
+          <tr>
+            <td><details><summary>Nickel       <input type="checkbox" id="Nickel" name="Nickel" value="Nickel"></input></summary><p><small></small></p></details></td>
+            <td>Ni</td>
+            <td>mg/kg TS</td>
+            <td>40</td>
+            <td>120</td>
+            <td></td>
+            <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+          </tr>
+          <tr>
+            <td><details><summary>Vanadin       <input type="checkbox" id="Vanadin" name="Vanadin" value="Vanadin"></input></summary><p><small></small></p></details></td>
+            <td>V</td>
+            <td>mg/kg TS</td>
+            <td>100</td>
+            <td>200</td>
+            <td></td>
+            <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+          </tr>
+          <tr>
+            <td><details><summary>Zink       <input type="checkbox" id="Zink" name="Zink" value="Zink"></input></summary><p><small></small></p></details></td>
+            <td>Zn</td>
+            <td>mg/kg TS</td>
+            <td>250</td>
+            <td>500</td>
+            <td></td>
+            <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+          </tr>
+          <tr>
+            <td><details><summary>Cyanid total       <input type="checkbox" id="Cyanid total" name="Cyanid total" value="Cyanid total"></input></summary><p><small></small></p></details></td>
+            <td></td>
+            <td>mg/kg TS</td>
+            <td>30</td>
+            <td>120</td>
+            <td></td>
+            <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+          </tr>
+          <tr>
+            <td><details><summary>Cyanid fri       <input type="checkbox" id="Cyanid fri" name="Cyanid fri" value="Cyanid fri"></input></summary><p><small></small></p></details></td>
+            <td></td>
+            <td>mg/kg TS</td>
+            <td>0,4</td>
+            <td>1,5</td>
+            <td></td>
+            <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+          </tr>
+          <tr>
+            <td><details><summary>Hexaklorbensen       <input type="checkbox" id="Hexaklorbensen" name="Hexaklorbensen" value="Hexaklorbensen"></input></summary><p><small></small></p></details></td>
+            <td>HCB</td>
+            <td>mg/kg TS</td>
+            <td>0,035</td>
+            <td>2</td>
+            <td></td>
+            <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+          </tr>
+          <td><details><summary>Diklormetan       <input type="checkbox" id="Diklormetan" name="Diklormetan" value="Diklormetan"></input></summary><p><small></small></p></details></td>
+          <td>DCM</td>
+          <td>mg/kg TS</td>
+          <td>0,08</td>
+          <td>0,25</td>
+          <td></td>
+          <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+         </tr>
+          <td><details><summary>Dibromklormetan       <input type="checkbox" id="Dibromklormetan" name="Dibromklormetan" value="Dibromklormetan"></input></summary><p><small></small></p></details></td>
+          <td>CHClBr2</td>
+          <td>mg/kg TS</td>
+          <td>0,05</td>
+          <td>2</td>
+          <td></td>
+          <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+        </tr>
+         <td><details><summary>Bromdiklormetan       <input type="checkbox" id="Bromdiklormetan" name="Bromdiklormetan" value="Bromdiklormetan"></input></summary><p><small></small></p></details></td>
+         <td>CHBrCl2</td>
+         <td>mg/kg TS</td>
+         <td>0,06</td>
+         <td>1</td>
+         <td></td>
+         <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+       </tr>
+       </tr>
+         <td><details><summary>Triklormetan       <input type="checkbox" id="Triklormetan" name="Triklormetan" value="Triklormetan"></input></summary><p><small></small></p></details></td>
+         <td></td>
+         <td>mg/kg TS</td>
+         <td>0,04</td>
+         <td>1,2</td>
+         <td></td>
+         <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+        </tr>
+        </tr>
+        <td><details><summary>Koltetraklorid       <input type="checkbox" id="Koltetraklorid" name="Koltetraklorid" value="Koltetraklorid"></input></summary><p><small></small></p></details></td>
+        <td>CCl4</td>
+        <td>mg/kg TS</td>
+        <td>0,08</td>
+        <td>0,35</td>
+        <td></td>
+        <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+      </tr>
+        <td><details><summary>1,2-dikloretan       <input type="checkbox" id="1,2-dikloretan" name="1,2-dikloretan" value="1,2-dikloretan"></input></summary><p><small></small></p></details></td>
+        <td>C2H4Cl2</td>
+        <td>mg/kg TS</td>
+        <td>0,02</td>
+        <td>0,06</td>
+        <td></td>
+        <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>1,2-dibrometan       <input type="checkbox" id="1,2-dibrometan" name="1,2-dibrometan" value="1,2-dibrometan"></input></summary><p><small></small></p></details></td>
+      <td>C2H4Br2</td>
+      <td>mg/kg TS</td>
+      <td>0,0015</td>
+      <td>0,0025</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>1,1,1-trikloretan       <input type="checkbox" id="1,1,1-trikloretan" name="1,1,1-trikloretan" value="1,1,1-trikloretan"></input></summary><p><small></small></p></details></td>
+      <td>C2H3Cl3</td>
+      <td>mg/kg TS</td>
+      <td>5</td>
+      <td>30</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>Trikloreten       <input type="checkbox" id="Trikloreten" name="Trikloreten" value="Trikloreten"></input></summary><p><small></small></p></details></td>
+      <td>C2HCl3</td>
+      <td>mg/kg TS</td>
+      <td>0,2</td>
+      <td>0,6</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>Tetrakloreten       <input type="checkbox" id="Tetrakloreten" name="Tetrakloreten" value="Tetrakloreten"></input></summary><p><small></small></p></details></td>
+      <td>C2Cl4</td>
+      <td>mg/kg TS</td>
+      <td>0,4</td>
+      <td>1,2</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>Dinitrotoluen (2,4)       <input type="checkbox" id="Dinitrotoluen (2,4)" name="Dinitrotoluen (2,4)" value="Dinitrotoluen (2,4)"></input></summary><p><small></small></p></details></td>
+      <td>C7H6N2O4</td>
+      <td>mg/kg TS</td>
+      <td>0,05</td>
+      <td>0,5</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>PCB-7       <input type="checkbox" id="PCB-7" name="PCB-7" value="PCB-7"></input></summary><p><small></small></p></details></td>
+      <td>1336-36-3</td>
+      <td>mg/kg TS</td>
+      <td>0,008</td>
+      <td>0,2</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>Dioxin       <input type="checkbox" id="Dioxin" name="Dioxi" value="Dioxin"></input></summary><p><small></small></p></details></td>
+      <td>1336-36-3</td>
+      <td>mg/kg TS</td>
+      <td>0,00002</td>
+      <td>0,0002</td>
+      <td>Inkluderar även dioxinliknande
+        PCB</td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>PAH-L       <input type="checkbox" id="PAH-L" name="PAH-L" value="PAH-L"></input></summary><p><small></small></p></details></td>
+      <td></td>
+      <td>mg/kg TS</td>
+      <td>3</td>
+      <td>15</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>PAH-M       <input type="checkbox" id="PAH-M" name="PAH-M" value="PAH-M"></input></summary><p><small></small></p></details></td>
+      <td></td>
+      <td>mg/kg TS</td>
+      <td>3</td>
+      <td>20</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>PAH-H       <input type="checkbox" id="PAH-H" name="PAH-H" value="PAH-H"></input></summary><p><small></small></p></details></td>
+      <td></td>
+      <td>mg/kg TS</td>
+      <td>1</td>
+      <td>10</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>Bensen       <input type="checkbox" id="Bensen" name="Bensen" value="Bensen"></input></summary><p><small></small></p></details></td>
+      <td>C6H6</td>
+      <td>mg/kg TS</td>
+      <td>0,012</td>
+      <td>0,04</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>Toluen       <input type="checkbox" id="Toluen" name="Toluen" value="Toluen"></input></summary><p><small></small></p></details></td>
+      <td>C7H8</td>
+      <td>mg/kg TS</td>
+      <td>10</td>
+      <td>40</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>Etylbensen       <input type="checkbox" id="Etylbensen" name="Etylbensen" value="Etylbensen"></input></summary><p><small></small></p></details></td>
+      <td>C8H10</td>
+      <td>mg/kg TS</td>
+      <td>10</td>
+      <td>50</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>Xylen      <input type="checkbox" id="Xylen" name="Xylen" value="Xylen"></input></summary><p><small></small></p></details></td>
+      <td>C8H10</td>
+      <td>mg/kg TS</td>
+      <td>10</td>
+      <td>50</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>Alifat >C5-C8      <input type="checkbox" id="Alifat >C5-C8" name="Alifat >C5-C8" value="Alifat >C5-C8"></input></summary><p><small></small></p></details></td>
+      <td></td>
+      <td>mg/kg TS</td>
+      <td>12</td>
+      <td>80</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>Alifat >C8-C10      <input type="checkbox" id="Alifat >C8-C10" name="Alifat >C8-C10" value="Alifat >C8-C10"></input></summary><p><small></small></p></details></td>
+      <td></td>
+      <td>mg/kg TS</td>
+      <td>20</td>
+      <td>120</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>Alifat >C10-C12      <input type="checkbox" id="Alifat >C10-C12" name="Alifat >C10-C12" value="Alifat >C10-C12"></input></summary><p><small></small></p></details></td>
+      <td></td>
+      <td>mg/kg TS</td>
+      <td>100</td>
+      <td>500</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>Alifat >C12-C16      <input type="checkbox" id="Alifat >C12-C16" name="Alifat >C12-C16" value="Alifat >C12-C16"></input></summary><p><small></small></p></details></td>
+      <td></td>
+      <td>mg/kg TS</td>
+      <td>100</td>
+      <td>500</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>Alifat >C5-C16      <input type="checkbox" id="Alifat >C5-C16" name="Alifat >C5-C16" value="Alifat >C5-C16"></input></summary><p><small></small></p></details></td>
+      <td></td>
+      <td>mg/kg TS</td>
+      <td>100</td>
+      <td>500</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>Alifat >C16-C35      <input type="checkbox" id="Alifat >C16-C35" name="Alifat >C16-C35" value="Alifat >C16-C35"></input></summary><p><small></small></p></details></td>
+      <td></td>
+      <td>mg/kg TS</td>
+      <td>100</td>
+      <td>1000</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>Aromat >C8-C10      <input type="checkbox" id="Aromat >C8-C10" name="Aromat >C8-C10" value="Aromat >C8-C10"></input></summary><p><small></small></p></details></td>
+      <td></td>
+      <td>mg/kg TS</td>
+      <td>10</td>
+      <td>50</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>Aromat >C10-C16      <input type="checkbox" id="Aromat >C10-C16" name="Aromat >C10-C16" value="Aromat >C10-C16"></input></summary><p><small></small></p></details></td>
+      <td></td>
+      <td>mg/kg TS</td>
+      <td>3</td>
+      <td>15</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>Aromat >C16-C35      <input type="checkbox" id="Aromat >C16-C35" name="Aromat >C16-C35" value="Aromat >C16-C35"></input></summary><p><small></small></p></details></td>
+      <td></td>
+      <td>mg/kg TS</td>
+      <td>10</td>
+      <td>30</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+    <tr>
+      <td><details><summary>MTBE      <input type="checkbox" id="MTBE" name="MTBE" value="MTBE"></input></summary><p><small></small></p></details></td>
+      <td></td>
+      <td>mg/kg TS</td>
+      <td>0,2</td>
+      <td>0,6</td>
+      <td></td>
+      <td><a href="https://www.naturvardsverket.se/Documents/publikationer/978-91-620-5976-7.pdf?pid=3574">Länk</a></td>
+    </tr>
+
+
+
+
+            </table>
+        </center>
     </div>
     <br />
-    <br />
-    <br />
-    
-    <center><p>
-       En utopi där hus är idealsamhällets grund.
-      </p></center>
-    </center>
-    <br />
-    <center>
-        <div class="container">
-            <div class="card" style="width:400px">
-              <img class="card-img-top" src="./assets/img/Visningbild.jpg" alt="Card image" style="width:100%">
-              <div class="card-body">
-                <h2 class="card-title">Gränsvärden</h2>
-                <p class="card-text">Gränsvärden och vad som kan utgöra farligt avfall kan vara komplext. Här hittar du tabeller över ämnen och deras gränsvärden.</p>
-                <a href="Gränsvärde.html" class="btn btn-dark">Visa</a>
-              </div>
-            </div>
-          </div>
-    </center>
-
-
-
 
     <br />
-    <div class="card-footer text-muted"></div>
+    <div class="card-footer text-muted"><p>Version 2</p></div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
